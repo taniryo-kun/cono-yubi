@@ -1,0 +1,163 @@
+#body{
+}
+
+#base{
+}
+
+#header{
+}
+
+#g-map{
+	position:relative;
+	width: 100%;
+	height: 0%;
+	background: #ffffff;
+        margin: 0 auto;
+}
+
+#rightcol {
+	width: 100%;
+}
+
+#guide {
+	display: none;
+	width: 10%;
+}
+
+#display_calendar{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+#send_button{
+	position:relative;
+	left: 50%;
+	width: 50%;
+}
+
+#eventdetail{
+	display: block;
+}
+
+#schedule{
+	height: 100%;
+	font-size: 0.7em;
+}
+
+#inputScheBox {
+	width:50%;
+}
+
+h4{
+	position:relative;
+	top:-15px;
+	left:50px;	
+}
+
+#numberOfMember {
+	position: relative;
+	width: 50%;
+	top: -34px;
+	left: 70px;
+}
+
+/*共通ヘッダー情報*/
+#likebutton {
+	display: block;
+	position: relative;
+	top: -20px;
+	left: 100px;
+}
+
+.user {
+	display: block;
+	position: relative;
+	top: -20px;
+	left: 0%;
+}
+
+#base {
+	position: relative;
+	top: -20px;
+}
+
+/*詳細ヘッダー情報*/
+#send_button {
+	display: block;
+	position: relative;
+	top: -30px;
+	right: -20%;
+}
+
+/*タブメニュー用*/
+#target{
+	width:100%;
+	height:100%;
+}
+
+#target li.tab0{
+	width:15%;
+	font-size:14px;
+	height:32px;
+}
+
+#target li.tab1{
+	width:15%;
+	font-size:14px;
+	height:32px;
+}
+
+#target li.tab2{
+	width:24%;
+	font-size:12px;
+	height:32px;
+}
+
+#target li.tab3{
+	width:15%;
+	font-size:14px;
+	height:32px;
+}
+#target li.tab4{
+	width:15%;
+	font-size:14px;
+	height:32px;
+}
+#tab0{
+	position:relative;
+	width: 90%;
+	height: 100%;
+	overflow: scroll;
+}
+
+#tab1{
+	position:relative;
+	left: 0%;
+	width: 90%;
+	height: 100%;
+	overflow: scroll;
+}
+
+#tab2{
+	position:relative;
+	left: -5%;
+	width: 90%;
+	height: 100%;
+	overflow: scroll;
+}
+
+#tab3{
+	position:relative;
+	left: -10%;
+	width: 100%;
+	height: 100%;
+	overflow: scroll;
+}
+#tab3{
+	position:relative;
+	left: -10%;
+	width: 100%;
+	height: 100%;
+	overflow: scroll;
+}

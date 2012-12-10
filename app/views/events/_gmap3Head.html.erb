@@ -1,0 +1,161 @@
+  <style type="text/css">
+   html, body{
+    height:100%;
+    margin:0;
+   }
+   #map_canvas{
+    height:90%;
+    width:100%;
+   }
+   #resultsCanvas{
+    position:absolute;
+    height:0%;
+    width:95%;
+	left:0px;
+	top:291px;
+	z-index:5;
+   }
+  </style>
+
+<script type="text/javascript">
+//Begin FB.init
+window.fbAsyncInit = function() {
+	console.log('FB.init start');
+	FB.init({
+		appId : '411286712247085',// App ID
+		channelUrl : '//http://www.cono-yubi.com/cono-top.html', // Channel File
+		status     : true, // check login status
+		cookie     : true, // enable cookies to allow the server to access the session
+		xfbml      : true, // parse XFBML
+		oauth	   : true, //OAuth2.0
+		frictionlessRequests: true
+	})
+	console.log('FB.init finished');
+};
+//End FB.init
+</script>
+
+<script type="text/javascript">
+		//Begin FB.init
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId : '411286712247085',// App ID
+				channelUrl : '//http://www.cono-yubi.com/cono-top.html', // Channel File
+				status     : true, // check login status
+				cookie     : true, // enable cookies to allow the server to access the session
+				xfbml      : true, // parse XFBML
+				oauth	   : true, //OAuth2.0
+				frictionlessRequests: true
+			})
+			console.log('FB.init finished');
+		};
+		//End FB.init
+
+      // This code generates a "Raw Searcher" to handle search queries. The Raw Searcher requires
+      // you to handle and draw the search results manually.
+      google.load('search', '1');
+	  google.load('maps','3',{other_params:'sensor=false'});
+
+      var localSearch;
+      var Address;
+	  var map;
+      
+      function searchComplete() {
+
+        // Check that we got results
+        document.getElementById('content').innerHTML = '';
+        if (localSearch.results && localSearch.results.length > 0) {
+		  var lat;
+		  var lng;
+		  var adrs;
+          for (var i = 0; i < localSearch.results.length; i++) {
+
+            // Create HTML elements for search results
+            var address = document.createElement('address');
+            //var p = document.createElement('p');
+            //var a = document.createElement('a');
+            //var b = document.createElement('b');
+            //var c = document.createElement('c');
+			
+			//検索結果の住所、または緯度経度を変数に格納
+			adrs = localSearch.results[i].region + 
+				   localSearch.results[i].city + 
+				   localSearch.results[i].streetAddress;
+			lat = localSearch.results[i].lat;
+			lng = localSearch.results[i].lng;
+			
+			address.innerHTML = adrs + "緯度は" + lat + "," + "経度は" + lng ;
+          }
+        }
+		gmap_init(lat, lng);
+      }
+
+      function gmap_onLoad() {
+
+        // Create a LocalSearch instance.
+        localSearch = new google.search.LocalSearch();
+
+        // Set the Local Search center point
+        localSearch.setCenterPoint("New York, NY");
+
+        // Set searchComplete as the callback function when a search is complete. The
+        // localSearch object will have results in it.
+        localSearch.setSearchCompleteCallback(this, searchComplete, null);
+
+        // Specify search quer(ies)
+        localSearch.execute('<%= @event.event_place %>');
+
+        // Include the required Google branding.
+        // Note that getBranding is called on google.search.Search
+        google.search.Search.getBranding('branding');
+      }
+	  
+		//define the map
+	   function gmap_init(imput1, imput2){
+		
+		var marker;
+		var infowindow;
+		//initialize the local searcher
+		var imput3=Number(imput1) + 0.007;
+		//substitute latlng to innerHTML
+		var linkLatLng = document.getElementById('linkLatLng');
+		linkLatLng.href = "https://maps.google.co.jp/?q=" + String(imput1) + ',' + String(imput2);
+		//substitute latlng to mapOption
+		var Latlng=new google.maps.LatLng(String(imput3),imput2);
+		var mapOptions={ // set up some map options
+		 center : Latlng,
+		 mapTypeId : google.maps.MapTypeId.ROADMAP,
+		 zoom : 16
+		},
+		//create map object
+		map = new google.maps.Map(document.getElementById('map_canvas'),mapOptions);
+		//define the position of map controll window
+		//and define the map controll window 
+		//map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push((window.gbar=new window.jeremy.jGoogleBar(map,gbarOptions)).container);
+		//define the marker
+		var m_latlng = new google.maps.LatLng(imput1,imput2);
+		//define the properties of marker
+		console.log(m_latlng);
+		var mopts = {
+		  position: m_latlng,
+		  flat: false,
+		  map: map
+		};
+		//define the marker
+		marker = new google.maps.Marker(mopts);
+		//define the contents of information window
+		var iwopts = {
+		  content: "<font size='2'><%= @event.event_name %></font><br>＠<font size='3'><b><%= @event.event_place %></b></font><br><font size='2' color='#990000'>イベント内容：<%= @event.event_pr %></font>",
+		  maxWidth: 200,
+		  position: m_latlng
+		};
+		//create infowindow to open on the marker
+		infowindow=new google.maps.InfoWindow(iwopts);
+		infowindow.open(map, marker); 
+	   }
+	   
+      // Set a callback to call your code when the page loads
+      google.setOnLoadCallback(gmap_onLoad);
+</script>
+
+<%= javascript_include_tag "jGoogleBarV3.min" %>

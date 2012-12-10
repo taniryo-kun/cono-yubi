@@ -1,0 +1,61 @@
+<div id="rightcol">
+<p id="notice"><%= notice %></p>
+<div id="eventdetail">
+<p>
+  <b>イベント名:</b>
+  <%= @event.event_name %><br>
+
+  <b>開始時間:</b>
+  <%= @event.event_time %><br>
+
+  <b>開催場所:</b>
+  <%= @event.event_place %><br>
+
+  <b>PR:</b>
+  <%= @event.event_pr %><br>
+
+  <!--<b>候補日１:</b>
+  <%= @event.candidate1 %><br>
+  <b>候補日２:</b>
+  <%= @event.candidate2 %><br>
+  <b>候補日３:</b>
+  <%= @event.candidate3 %><br>-->
+  <b>締切日:</b>
+  <%= @event.deadline %><br>
+</p>
+</div>
+
+<% if @current_user.name == @promorterName %>
+<a href="#hidden" id="okakure">Edit</a> |
+<% end %>
+<%= link_to 'Back', events_path %>
+
+<div style="display:none;">
+	<div id="hidden">
+		<%= render "form" %>
+	</div>
+</div>
+
+<div id="schedule">
+<%= render "schedule" %>
+</div>
+<!-- 友達のリスト表示が出来るまで、いったん保留
+  <%= link_to "メッセージ送る", {:controller => "events", :action => "automessage"} %>
+-->
+
+<!-- 注意！！send_buttonのスタイルシート設定をcssに追加すること！！ -->
+<p id="eid"><%= @event.id %></p>
+<p id="epr"><%= @event.event_pr %></p>
+<div id="send_button" >
+<%= render "sendButton2" %>
+</div>
+<!-- /send_button -->
+<!-- feed_button(jsファイルはsendtest2.jsの中に格納されています -->
+<p id="feed_button">
+<input type="button"
+  onclick="feed_test();return false;"
+  value="フィードを送っちゃおう!!"
+>
+</p>
+<!-- /feed_button -->
+</div><!-- rightcol -->

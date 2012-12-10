@@ -1,0 +1,4 @@
+<p id="send_button">
+	<a href="mailto:?subject=イベントの案内&amp;body=イベント名:<%= @event.event_name%><br>内容:<%= @event.event_pr %>" >メールで送る</a>
+	<fb:send href="http://www.cono-yubi.com/cono-top/events/<%= @event.id %>" font="arial"></fb:send>
+</p><!-- send_button -->

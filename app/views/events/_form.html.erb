@@ -1,0 +1,77 @@
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2>必須事項の入力が<%= pluralize(@event.errors.count,"") %>ヶ所抜けています。</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "イベント名" %><br />
+    <%= f.text_field :event_name %>
+  </div>
+    <div class="field">
+    <%= f.label "開催場所" %><br />
+    <%= f.text_field :event_place %>
+  </div>
+    <div class="field">
+    <%= f.label "開始時間" %><br />
+    <%= f.datetime_select :event_time, :discard_day=>true,:discard_month=>true,:discard_year=>true,:minute_step=>15 %>
+  </div>
+    <div class="field">
+    <%= f.label "候補日１" %><br />
+    <%= f.date_select :candidate1 %>
+  </div>
+  
+  <br /><!--<div id="more_candi">+ 候補日追加</div>--><input type="button" id="more_candi" value="+ 候補日追加" />
+  
+  <div class="candi_field">
+    <%= f.label "候補日２" %><br />
+    <%= f.date_select :candidate2 %>
+  </div>
+  <div class="candi_field">
+    <%= f.label "候補日３" %><br />
+    <%= f.date_select :candidate3 %>
+  </div>
+  
+ <br /><div id="detail_div"><input type="button"  id="more_detail" value="＋　詳細設定" /></div>
+ 
+  <div class="detail">
+    <%= f.label :event_pr, "イベント詳細" %><br />
+    <%= f.text_area :event_pr %>
+  </div>
+  <div class="detail">
+    <%= f.label :deadline, "締め切り" %><br />
+    <%= f.date_select :deadline %>
+  </div>
+  <div class="private">
+  	<%= f.check_box :private_flag %>
+  	<label for="event_private_flag">プライベート設定</label>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+	$("label").click(function(){});
+	$(".actions input").bind('click',function(){
+			$(this).css('border','2px solid #3f8fd2')
+		});
+
+	$(".candi_field, .detail").hide();
+	$("#more_candi").bind('click', function(){
+			$(".candi_field").slideToggle();
+			myScroll.refresh();
+		});
+	$("#more_detail").bind('click', function(){
+			$(".detail").slideToggle();
+			
+			myScroll.refresh();
+		});
+</script>

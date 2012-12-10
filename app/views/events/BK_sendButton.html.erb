@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns = "http://www.w3.org/1999/xhtml" dir = "ltr" xml:lang = "ja"
+	xmln:fb = "https://www.facebook.com/2008/fbml#"
+	xmlns:mixi = "http://mixi-platform.com/ns#">
+  <head prefix = "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# conoyubi: http://ogp.me/ns/fb/conoyubi#">
+  <meta http-equiv = "Content-Type" 		content = "text/html; charset = UTF-8" />
+  <meta http-equiv = "Content-Style-Type" 	content = "text/css" />
+  <meta http-equiv = "Content-Script-Type" 	content = "text/javascript" />
+  <meta name ="copyright" 					content = "Copyright Netowl Corporation" />
+  <meta name = "robots" 					content = "INDEX, FOLLOW" />
+  <meta property = "og:title"	content = "CONOYUBI" />
+  <meta property = "type"		content = "website" />
+  <meta property = "url"		content = "http://www.cono-yubi.com" />
+  <meta property = "site_name"	content = "?CONOYUBI" />
+  <meta property = "fb:admins"	content = "238965046184776" />
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <%= javascript_include_tag "FB_init","FB_function" %>
+  <%= csrf_meta_tags %>
+  
+  <style type="text/css">
+   html, body{
+    height:100%;
+    margin:0;
+   }
+  </style>
+  </head>
+  
+  
+  <body>
+    <script src="http://connect.facebook.net/en_US/all.js"></script>
+	<!-- Define the send button function -->
+	<script>
+	//Begin send_test
+	function send_test() {
+	  var publish = {
+		method: 'send',
+		//redirect_uriは送信者が送信ボタンを押した後にリダイレクトするURL
+		//redirect_uri: 'http://www.cono-yubi.com/events/18',
+		message: 'CONOYUBI',
+		name: '<%= @event.event_pr %>',
+		display: 'popup',
+		caption: '',
+		to: '',
+		description: (
+		  'イベントへのリンクはこちらhttp://www.cono-yubi.com/cono-top/events/<%= @event.id %>'
+		),
+		link: 'http://www.cono-yubi.com/cono-top',
+		picture: 'http://www.cono-yubi.com/cono-top/assets/Mainlogo.png',
+		actions:[
+		  {name: 'fbrell', link: ''}
+		],
+		user_message_prompt:''
+	  };
+	  
+	  FB.ui(publish, requestCallback);
+	}
+	//End send_test
+	</script>
+	
+	<!-- Define the send button -->
+    <div id="fb-root"></div>
+      <p>
+	    <input type="button"
+	      onclick="send_test();return false;"
+		  value="友達に招待3メッセージを送っちゃおう!!"
+		>
+	  </p>
+  </body>
+</html>

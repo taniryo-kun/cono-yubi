@@ -1,0 +1,68 @@
+#whatsconoyubi{
+	background:#fff;
+	width:1020px;
+	position:relative;
+	margin:0 auto 0 auto;
+}
+
+#logo{
+	position: relative;
+	margin-top: 10px;
+}
+
+h3 {
+    margin: 0;
+    padding: 0 0 10px 23px;
+    text-align: left;
+}
+
+#sponsor{
+	float: left;
+	width: 500px;
+	border:1px solid #f0f0f0;
+	background:#e44815;
+}
+
+#step_sponsor{
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: 1px solid #CCCCCC;
+	text-align: left;
+	margin: 5px;
+	padding: 19px
+}
+
+#visiter{
+	float: right;
+	width: 500px;
+	border:1px solid #f0f0f0;
+	background:#e44815;
+}
+
+#step_visiter{
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: 1px solid #CCCCCC;
+	text-align: left;
+	margin: 5px;
+	padding: 19px
+}
+
+#clear{
+	clear:both;
+}
+
+#footer{
+	clear:both;
+	margin:10px;
+}
+
+#privacy{
+	position:absolute;
+	top:855px;
+	left:150px;
+}
+
+#gologin{
+	position:absolute;
+	top:855px;
+	left:10px;
+}

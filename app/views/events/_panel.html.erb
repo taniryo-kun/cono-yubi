@@ -1,0 +1,59 @@
+<% i = 0 %>
+<% pnum = 1 %>
+<% enum = 1 %>
+<% flag = 0 %>
+<% @events.each do |event| %>
+<% if i%6 + 1 == 1 %>
+	<div class="panel">
+		<div class="panel-wrapper">
+			<h2 class="title">Panel <%= pnum.to_s %></h2>
+			<div id="container">
+				<div id="logo">
+					<%= image_tag "Sublogo.png", :width => '199',:height => "100",:border => "0",:id => "gazo",:alt => "cono-yubi" %>
+				</div>
+<% enum = 1 %>
+<% flag = 0 %>
+<% end %>
+
+		<p id="epr"><%= event.event_pr %></p>
+		<p id="enumber"><%= i.to_s %></p>
+		<% divid = "event" + enum.to_s %>
+		<% eventExplanation = "exp" + i.to_s %>
+		<!--変更--><div id=<%= divid %> onmouseover = "displayExplanation(<%= i.to_s %>);" onmouseout = "eleaseExplanation(<%= i.to_s %>);">
+			<!--<div id=<%= divid %>>-->
+			<%= link_to event do %>
+			<%= truncate(event.event_name,:length => 16) %>
+			<br>
+			<% if event.image_url.present? %>
+				<%= image_tag event.image_url %>
+			<% end %>
+			<% if event.image_url.blank? %>
+				<%= image_tag "Noimage_" + enum.to_s + ".png" %>
+			<% end %>
+			<% end %><!-- //link_to event do -->
+			<!--変更--><% prid = "eventPR_" + i.to_s %>
+			<!--追加--><% imgtag = "Explanation" + enum.to_s + ".png" %>
+			<!--追加--><% imgid = "Explanation" + enum.to_s %>
+			<!--追加--><% expid = "pr" + enum.to_s %>
+			<!--追加--><script>initExplanation(<%= i.to_s %>);</script>
+			<div id=<%= prid %>>
+				<!--追加--><%= image_tag imgtag, :width => '100',:height => "100",:border => "0",:id => imgid,:alt => "cono-yubi" %>
+				<!--変更--><div id=<%= expid%>>イベントPR：<%= truncate(event.event_pr,:length => 30) %></div>
+			</div>
+		</div>
+
+<% if i%6 + 1 == 6 %>
+			</div><!--//container-->
+		</div><!--//panel-wrapper-->
+	</div><!--//panel-->
+	<% flag = 1 %>
+	<% pnum += 1 %>
+<% end %>
+<% i += 1 %>	
+<% enum += 1 %>	
+<% end %><!-- //@events.each do |event| -->
+<% if flag == 0 %>
+			</div><!--//container-->
+		</div><!--//panel-wrapper-->
+	</div><!--//panel-->
+<% end %>

@@ -1,0 +1,16 @@
+<h1>Fbusers#callback</h1>
+<p>Find me in app/views/fbusers/callback.html.erb</p>
+<%= @client.user('name') %>
+<%= @client.user('username') %>
+<br><br>
+<%= @client %>
+<br><br>
+<%= @client.me %>
+<br><br>
+<%= @client.me('name')%>
+<br><br>
+<%= @client.me.info %>
+
+<%= @client.send(:_get, @client.user('id')) %>
+
+

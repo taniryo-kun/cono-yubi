@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns ="http://www.w3.org/1999/xhtml" dir = "ltr" xml:lang = "ja"
+		xmln:fb = "https://www.facebook.com/2008/fbml#"
+		xmlns:mixi = "http://mixi-platform.com/ns#">
+<head prefix = "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# conoyubi: http://ogp.me/ns/fb/conoyubi#">
+  <link rel="shortcut icon" href="../assets/images/favicon.ico">
+  <meta http-equiv = "Content-Type" content = "text/html; charset = UTF-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <meta name="copyright" content="Copyright Netowl Corporation" />
+  <meta name="robots" content="INDEX,FOLLOW" />
+  <meta property="og:title"        content="CONOYUBI" />
+  <meta property="og:type"         content="website" />
+  <meta property="og:url"          content="http://www.cono-yubi.com/cono-top" />
+  <meta property="og:site_name"    content="?CONOYUBI" />
+  <meta property="fb:admins"       content="238965046184776" />
+  <link rel="shortcut icon" href="./img/favicon.ico">
+  <title>ConoYubi-ログインページ-</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <%= stylesheet_link_tag "smart/login_smart_phone" %>
+  <%= javascript_include_tag  %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+<!-- タイトルの表示 -->
+<div id="index_tytle" class="letter">
+</div>
+
+<!-- タイトル背景画像の表示 -->
+<div id="index_tytle" class="backgroundpict"></div>
+
+<!-- 文言1 -->
+<div id="sub_tytle" class="letter">
+	<h6>会社のみんなでお花見だぁー☆<br />このゆびとーまれっ！！</h6>
+</div>
+
+<!-- logo1 -->
+<div id="sub_tytle" class="logo1">
+<%= image_tag "logo_blue_2.png" %>
+</div><!-- sub_tytle -->
+
+<!-- 文言2 -->
+<div id="sub_tytle" class="letter">
+	<h6>たまには一緒にカラオケなんかどう？<br />このゆびとまりたい人ー？？</h6>
+</div><!-- sub_tytle -->
+
+<!-- logo2 -->
+<div id="sub_tytle" class="logo2">
+<%= image_tag "logo_yellow_2.png" %>
+</div><!-- sub_tytle -->
+
+<!-- 文言3 -->
+<div id="sub_tytle" class="letter">
+	<h6>キャンプいきましょう！！<br />だれか来るひといるー？</h6>
+</div><!-- sub_tytle -->
+
+<!-- logo3 -->
+<div id="sub_tytle" class="logo3">
+<%= image_tag "logo_green_2.png" %>
+</div><!-- sub_tytle -->
+
+<!-- 文言4 -->
+<div id="sub_tytle" class="letter">
+	<h6>あの・・・その・・・<br />紅葉狩りにいきませんか？</h6>
+</div><!-- sub_tytle -->
+
+<!-- logo4 -->
+<div id="sub_tytle" class="logo4">
+<%= image_tag "logo_red_2.png" %>
+</div><!-- sub_tytle -->
+
+<!-- 文言5 -->
+<div id="sub_tytle" class="letter">
+	<h6>久しぶりに同窓会やろうや<br />みんなあつまれー！！</h6>
+</div><!-- sub_tytle -->
+
+<!-- logo5 -->
+<div id="sub_tytle" class="logo5">
+<%= image_tag "logo_black_2.png" %>
+</div><!-- sub_tytle -->
+
+<!-- large letter -->
+<div id="sub_tytle" class="largeletter">
+	<h6> CONOYUBIとまれます</h6>
+</div><!-- sub_tytle -->
+
+<!--ロゴの表示-->
+<div id="index" class="logo">
+	<div align="center">
+		<%= image_tag "Mainlogo.png", :width => '300', :height => '300' %>
+	</div>
+</div><!--index-->
+
+<!-- ログインページの表示 -->
+<div id="loginb">
+ <%= link_to image_tag("botton_3_4.png"), "http://www.cono-yubi.com/cono-top/auth/facebook" %>
+<!-- <%= link_to 'facebook', "/auth/facebook" %> -->
+<!-- <a href = "/auth/facebook" id = "loginb" >login</a> -->
+</div>
+
+<!-- conoyubi説明ページの表示 -->
+<div id="whatb">
+ <%= link_to image_tag("whatisconoyubi.png"), "http://www.cono-yubi.com/cono-top/whatisconoyubi" %>
+<!-- <a href = "whatisconoyubi" >conoyubiとは</a> -->
+</div>
+<div id="counter">1</div>
+<script type="text/javascript">
+	var winwid = $(window).width();
+	var winhei = $(window).height();
+	$('#loginb img').css({
+		'width':winwid/2
+		});
+	$('#whatb img').css("width",winwid/2);
+	$('body').css({
+	'width':winwid,
+	'background-image':'url(assets/top_bk5.png)',
+	'-webkit-background-size':winwid + 'px auto',
+	'background-position':'0px -60px'
+	});
+</script>
+</body>
+</html>

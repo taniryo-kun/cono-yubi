@@ -1,0 +1,69 @@
+<!-- Begin view access_token --
+<%= link_to 'friendlistへアクセス', :controller => "events", :action => "getfriendlist"  %>
+<p class = "access_token">
+	アクセストークンは<%= session[:token]%>です。
+</p>
+!End view access_token -->
+
+<!-- Begin Multi-friend list --
+<div id="multi-friend-list">
+	<a href="#" onclick="renderMFS();return false;">Multi_friend_list</a>
+</div>
+!-- End Multi-friend list -->
+
+<!-- Begin multi friend selector --
+<script>
+var me = "";
+//me = me.replace(/\n/g, "");
+var key = "";
+var query = "SELECT" + name,flid + "FROM" +  friendlist + "WHEREuidIN(SELECTuid2FROMfriendWHEREuid1=" + me;
+function renderMFS() {
+// First get the list of friends for this user with the Graph API
+	//FB.api('\/' + me + '\/friends?access_token=' + key, function(response) {
+	FB.api({
+		method:'fql.query',
+		query:'SELECT name,flid FROM friendlist WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me')
+		},
+		function(response){
+		location.href = "https://graph.facebook.com/" + me + "\/friends?access_token=" + key;
+		//alert (query);
+		var container = document.getElementById('mfs');
+		var mfsForm = document.createElement('form');
+		mfsForm.id = 'mfsForm';
+		
+		// Iterate through the array of friends object and create a checkbox for each one.
+		for(var i = 0; i < Math.min(response.data.length, 10); i++) {
+			var friendItem = document.createElement('div');
+			friendItem.id = 'friend_' + response.data[i].id;
+			friendItem.innerHTML = '<input type="checkbox" name="friends" value="'
+			+ response.data[i].id
+			+ '" />' + response.data[i].name;
+			mfsForm.appendChild(friendItem);
+		}
+		container.appendChild(mfsForm);
+		
+		// Create a button to send the Request(s)
+		var sendButton = document.createElement('input');
+		sendButton.type = 'button';
+		sendButton.value = 'Send Request';
+		sendButton.onclick = sendRequest;
+		mfsForm.appendChild(sendButton);
+	});
+}
+//End renderMFS
+</script>
+!-- End Multi-friend list -->
+
+	<div class="coda-slider-wrapper">
+		<!-- event edit button -->
+		<a href="#hidden" id="okakure"><%= image_tag "makeevent.png" %></a>
+			<div class="coda-slider preload" id="coda-slider-1">
+							<%= render "panel" %>
+			</div><!--//coda-slider preload-->
+	</div><!--//coda-slider-wrapper-->
+
+<div style="display:none">
+	<div id="hidden">
+		<%= render "form" %>
+	</div>
+</div>

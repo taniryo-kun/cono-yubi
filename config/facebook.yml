@@ -1,0 +1,9 @@
+# config/facebook.yml
+development:
+ app_id: 411286712247085
+ secret_key: 1af04ea073ab80331de73944ec49fc4e
+ callback_url: http://www.conoyubi.com
+test:
+ ...
+production:
+ ...

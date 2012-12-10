@@ -1,0 +1,126 @@
+body{
+	background: #ffffff;
+	margin: 0;
+}
+
+#header a:link{
+	color: #fff8dc;
+	text-decoration: none;
+}
+
+#header a:visited{
+	color: #fff8dc;
+	text-decoration: none;
+}
+
+#header a:hover{
+	color: #FFD700;
+	text-decoration: underline;
+}
+
+#base{
+	display: block;
+	background: #FFFF00;
+	background-repeat : no-repeat;
+	height: 800px;
+	width: 95%;
+	margin: 0 auto;
+	position: relative;
+	border-width: 1px;
+	border-radius: 0px;
+	border-color: #C0C0C0;
+	border-right-style: dotted;
+	border-left-style: dotted;
+}
+
+#header{
+	position: relative;
+	height: 30px;
+	width: 100%;
+	z-index: 10;
+	background: #8B0000;
+	color: #FFF8DC;
+}
+
+#header #contents{
+	width: 50%;
+	margin: 0 auto;
+	font-size: large;
+}
+
+#header .user{
+	position: relative;
+	left: 200px;
+	top:-55px;
+}
+
+#header #likebutton{
+	position: relative;
+	left: 117px;
+	top: -27px;
+}
+
+#header #logo{
+	height:100px;
+	width:790px;
+	background:#fff;
+	position:absolute;
+	top:5px;
+	left:5px;
+}
+
+#header img#makebutton{
+	height:85px;
+	margin:3 20 3 20;
+	position:absolute;
+	bottom:11px;
+	right:10px;
+}
+
+#header img#sankabutton{
+	height:100px;
+	margin:3 20 3 20;
+	position:absolute;
+	top:5px;
+	right:5px;
+}
+
+#gazo{
+	height:100px;
+	position:absolute;
+	top:0px;
+	left:25px;
+}
+
+#what{
+	width:250px;
+	height:30px;
+	padding-top:10px;
+	position:absolute;
+	top:80px;
+	left:100px;
+	background:#e7e7e7;
+	border:2px solid #000;
+}
+
+#login{
+	border:2px solid #000;
+	margin:30px 70px 30px 35px;
+	padding-top:20px;
+	height:130px;
+	width:250px;
+	float:right;
+	background-color:#e7e7e7;
+}
+
+#footer{
+	position:relative;
+	padding: 0px;
+}
+
+/* whatsconoyubi/html */
+#message{
+	margin:300px auto 0 auto;
+	border-top:1px solid blue;
+	border-bottom:1px solid blue;
+}

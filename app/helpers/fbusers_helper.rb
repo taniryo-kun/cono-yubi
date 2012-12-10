@@ -1,0 +1,2 @@
+module FbusersHelper
+end

@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+ <head>
+  <%= javascript_include_tag "gmap_gucci" %>
+  <style type="text/css">
+   html, body{
+    height:100%;
+    margin:0;
+   }
+   #map_canvas{
+    height:100%;
+    width:100%;
+   }
+   #resultsCanvas{
+    position:absolute;
+    height:20%;
+    width:95%;
+	left:0px;
+	top:291px;
+	z-index:5;
+   }
+  </style>
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+  <script src="http://www.google.com/uds/api?file=uds.js&amp;v=1.0&amp;key=AIzaSyB1g0nXJgt_RBH35_YJ_Ap2CBqJ-kPWRbc" type="text/javascript"></script>
+  <script type="text/javascript">
+   //google.load can download automatically download newest version 'maps api'
+   google.load('maps','3',{other_params:'sensor=false'}); 
+   google.load('search','1');
+   //var geocoder = new google.maps.Geocoder();
+   var localsearch;
+   var searchControl;
+   var map;
+   var infowindow;
+   var marker;
+   var selectedResults = [];
+   var currentResults = [];
+   var searchForm;
+   
+   //do the local search
+   function onload(){
+   	localsearch=new google.search.LocalSearch();
+	/*localsearch.setCenterPoint("<%= @event.event_place %>");*/
+	var searchControl = new google.search.SearchControl();
+	searchControl.setSearchCompleteCallback(null, OnLocalSearch);
+	searchControl.execute("tokyo");
+	searchControl.setAddressLookupMode();
+   }
+   //define dealing when there is no seach result
+   function OnLocalSearch() {
+     if(!localsearch.results)return;
+	 var first = localsearch.results[0];
+	 map.setCenter(new google.maps.LatLng(parseFloat(first.lat), parseFloat(first.lng)), 15);
+   }
+   //define the map
+   function init(){
+   	//initialize the local searcher
+    var Latlng=new google.maps.LatLng(35.709984,139.810703);
+    var mapOptions={ // set up some map options
+     center : Latlng,
+     mapTypeId : google.maps.MapTypeId.ROADMAP,
+     zoom : 16
+    },
+	//set up some result canvas options
+    gbarOptions={
+     resultList : document.getElementById('resultsCanvas')
+    };
+	//create map object
+    map=new google.maps.Map(document.getElementById('map_canvas'),mapOptions);
+	//define the position of map controll window
+	//and define the map controll window 
+    map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push((window.gbar=new window.jeremy.jGoogleBar(map,gbarOptions)).container);
+	//define the marker
+	var m_latlng = new google.maps.LatLng(35.709984,139.810703);
+	//define the properties of marker
+    var mopts = {
+      position: m_latlng,
+	  flat: false,
+	  map: map
+    };
+    //define the marker
+    marker = new google.maps.Marker(mopts);
+	//define the contents of information window
+    var iwopts = {
+      content: "<%= @event.event_place %>",
+      position: m_latlng
+    };
+	//create infowindow to open on the marker
+	infowindow=new google.maps.InfoWindow(iwopts);
+	infowindow.open(map, marker); 
+   }
+   google.setOnLoadCallback(onload);
+   google.setOnLoadCallback(init);
+  </script>
+  <%= javascript_include_tag "jGoogleBarV3.min" %>
+ </head>
+ <body>
+  <div id="resultsCanvas"></div>
+  <div id="map_canvas"></div>
+ </body>
+</html>

@@ -1,0 +1,122 @@
+* {
+	margin : 0 ;
+	padding : 0 ; 
+	font-size : 100% ;
+}
+
+#whatb {
+	position	: relative;
+	background	: url("whatisconoyubi.png");
+	background-repeat : no-repeat;
+	font-size	: 0%;
+	width		: 316px;
+	height		: 150px;
+	top		: -580px;
+	left		: 930px;
+}
+
+#loginb {
+	position	: relative;
+	background	: url("botton_3_4.png");
+	background-repeat : no-repeat;
+	font-size	: 0%;
+	width		: 316px;
+	height		: 150px;
+	top		: -530px;
+	left		: 930px;
+}
+
+#loginb:hover {
+	position	: relative;
+	background	: url("botton_2_4.png");
+	background-repeat : no-repeat;
+	font-size	: 0%
+	width		: 316px;
+	height		: 150px;
+	top		: -530px;
+	left		: 930px;
+}
+
+#sub_tytle.letter1{
+	position	: relative;
+	color		: #A9A9A9;
+	width		: 300px;
+	top		: 12px;
+	left		: 809px;
+}
+
+#sub_tytle.logo1{
+	position	: relative;
+	width		: 150px;
+	top		: -70px;
+	left		: 1080px;
+}
+
+#sub_tytle.letter2{
+	position	: relative;
+	color		: #A9A9A9;
+	width		: 300px;
+	top		: -32px;
+	left		: 1081px;
+}
+
+#sub_tytle.logo2{
+	position	: relative;
+	width		: 150px;
+	top		: -110px;
+	left		: 940px;
+}
+
+#sub_tytle.letter3{
+	position	: relative;
+	color		: #A9A9A9;
+	width		: 500px;
+	top		: -72px;
+	left		: 737px;
+}
+
+#sub_tytle.logo3{
+	position	: relative;
+	width		: 150px;
+	top		: -150px;
+	left		: 1080px;
+}
+
+#sub_tytle.letter4{
+	position	: relative;
+	color		: #A9A9A9;
+	width		: 300px;
+	top		: -112px;
+	left		: 1044px;
+}
+
+#sub_tytle.logo4{
+	position	: relative;
+	width		: 150px;
+	top		: -190px;
+	left		: 940px;
+}
+
+#sub_tytle.letter5{
+	position	: relative;
+	color		: #A9A9A9;
+	width		: 300px;
+	top		: -152px;
+	left		: 833px;
+}
+
+#sub_tytle.logo5{
+	position	: relative;
+	width		: 150px;
+	top		: -230px;
+	left		: 1080px;
+}
+
+#sub_tytle.largeletter{
+	position	: relative;
+	color		: #000000;
+	font-size	: 400%;
+	width		: 1000px;
+	top		: -162px;
+	left		: -111px;
+}

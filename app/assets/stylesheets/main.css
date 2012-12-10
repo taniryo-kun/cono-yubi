@@ -1,0 +1,101 @@
+body{
+	margin:auto;
+	text-align:center;
+}
+
+#base{
+	background:#fff;
+	height:800px;
+	position:relative;
+}
+
+#header{
+	position:relative;
+	left:-10%;
+	top:0px;
+	height:110px;
+	width:800px;
+	z-index:0;
+}
+
+#header .conoyubilink {
+	position: relative;
+	left:-10%;
+	top:0%;
+}
+
+#header .user {
+	position: relative;
+	right:-80%;
+	top:0%;
+}
+
+#header p{
+	text-align:left;
+}
+
+#header #logo{
+	height:100px;
+	width:790px;
+	background:#fff;
+	position:absolute;
+	top:5px;
+	left:5px;
+}
+
+#header img#makebutton{
+	height:85px;
+	margin:3 20 3 20;
+	position:absolute;
+	bottom:11px;
+	right:10px;
+}
+
+#header img#sankabutton{
+	height:100px;
+	margin:3 20 3 20;
+	position:absolute;
+	top:5px;
+	right:5px;
+}
+
+#gazo{
+	height:100px;
+	position:absolute;
+	top:0px;
+	left:25px;
+}
+
+#what{
+	width:250px;
+	height:30px;
+	padding-top:10px;
+	position:absolute;
+	top:80px;
+	left:100px;
+	background:#e7e7e7;
+	border:2px solid #000;
+}
+
+#login{
+	border:2px solid #000;
+	margin:30px 70px 30px 35px;
+	padding-top:20px;
+	height:130px;
+	width:250px;
+	float:right;
+	background-color:#e7e7e7;
+}
+
+#footer{
+	position:relative;
+	background-color: #ffe0e0;
+	padding: 8px;
+}
+
+/* whatsconoyubi/html */
+#message{
+	margin:300px auto 0 auto;
+	border-top:1px solid blue;
+	border-bottom:1px solid blue;
+}

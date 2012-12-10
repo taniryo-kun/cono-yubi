@@ -1,0 +1,275 @@
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+body {
+	background: url("Backgroundpict.png");
+	background-repeat : no-repeat;
+	background-attachment : scroll;
+	line-height: 100%;
+	color: #333333;
+	/*text-align: center;*/
+}
+
+
+#base{
+	position:relative;
+}
+
+#container{
+	position:relative;
+	width:800px;
+	height:400px;
+	margin:auto;
+	margin-top:5px;
+	padding:0px;
+	background:#000;
+}
+
+#container input#info{
+	margin-left:100px;
+}
+
+#container #event1{
+	width:260px;
+	height:150px;
+	position:absolute;
+	top:5px;
+	left:5px;
+	background:#D3D3D3;
+}
+
+#container #event1:hover{
+	background:#B22222;
+}
+
+#container #event2{
+	width:260px;
+	height:150px;
+	position:absolute;
+	top:5px;
+	left:270px;
+	background:#D3D3D3;
+}
+
+#container #event2:hover{
+	background:#4169E1;
+}
+
+#container #event3{
+	width:260px;
+	height:150px;
+	position:absolute;
+	top:5px;
+	right:5px;
+	background:#D3D3D3;
+}
+
+#container #event3:hover{
+	background:#90EE90;
+}
+
+#container #event4{
+	width:260px;
+	height:150px;
+	position:absolute;
+	bottom:5px;
+	left:5px;
+	background:#D3D3D3;
+}
+
+#container #event4:hover{
+	background:#A0522D;
+}
+
+#container #event5{
+	width:260px;
+	height:150px;
+	position:absolute;
+	bottom:5px;
+	left:270px;
+	background:#D3D3D3;
+}
+
+#container #event5:hover{
+	background:#F08080;
+}
+
+#container #event6{
+	width:260px;
+	height:150px;
+	position:absolute;
+	bottom:5px;
+	right:5px;
+	background:#D3D3D3;
+}
+
+#container #event6:hover{
+	background:#6A5ACD;
+}
+
+
+#index {
+	background: #FFFFFF;
+	line-height: 150%;
+	color: #333333;
+	text-align: center;
+	width: 320px;
+	position: relative;
+	top: 30px;
+	left: 290px;
+}
+
+#index.logo {
+	top: -750px;
+	left: 170px;
+}
+
+#index_tytle.letter {
+	position: relative;
+	top: 0px;
+	left: 0px;
+	text-align: left;
+	font-size: 20px;
+	font-weight: bold;
+	color: #ff0000;
+	width: 300;
+	height: 20px;
+}
+
+#index_tytle.backgroundpict {
+	position: relative;
+	top: -22px;
+	left: -15px;
+	text-align: left;
+	font-size: 20px;
+	font-weight: bold;
+	color: #ff0000;
+	width: 300;
+	height: 20px;
+}
+
+#index_box {
+	position: absolute;
+	top: 100px;
+	left: 0px;
+	width: 950px;
+	height: 600px;
+	padding: 10px;
+	background: #FFFFFF;
+	border: 4px;
+	font-size: 16px;
+}
+
+#index_text {
+	backgroud: #FFFFFF;
+	line-height: 150%;
+	color: #333333;
+	text-align: left;
+	width: 500px;
+	position: relative;
+	top: 10px;
+	left: 210px;
+}
+
+.explaining0 {
+	line-height: 100%;
+	text-align: left;
+	font-size: 20px;
+	font-weight: bold;
+	color: #ff0000;
+	width: 500px;
+	position: relative;
+	top: 80px;
+	left: 40px;
+}
+
+.explaining1 {
+	line-height: 100%;
+	text-align: left;
+	width: 500px;
+	position: center;
+	top: 20px;
+	left: 40px;
+}
+
+.explaining2 {
+	line-height: 100%;
+	text-align: left;
+	font-size: 3px;
+	width: 500px;
+	position: relative;
+	top: 120px;
+	left: 40px;
+}
+	
+#index_text p {
+	font-size: 100%;
+	margin: 1em 25px 1em 40px;
+	line-height: 170%;
+}
+
+/*登録ボタン情報その１*/
+a#link_registration {
+	display:block;
+	text-indent: -9999em;
+	font-size: 0px;
+	background: url("../img/botton_1.png") no-repeat center top;
+	position: absolute;
+	top: 700px;
+	left: 650px;
+	width: 300px;
+	height: 90px;
+	border:0px solid #c13300;
+}
+
+/*登録ボタン情報その２*/
+a#link_registration:hover {
+	display:block;
+	text-indent:-9999em;
+	font-size: 0px;
+	background: url("../img/botton_1_2.png") no-repeat center top;
+	position: absolute;
+	top: 700px;
+	left: 650px;
+	width: 300px;
+	height: 90px;
+	border:0px solid #c13300;
+}
+
+/*ログインボタン情報その１*/
+a#link_login {
+	display:block;
+	text-indent: -9999em;
+	font-size: 0px;
+	background: url("../img/botton_3_4.png") no-repeat center top;
+	position: absolute;
+	top: 700px;
+	left: 1000px;
+	width: 300px;
+	height: 90px;
+	border:0px solid #c13300;
+}
+
+/*ログインボタン情報その２*/
+a#link_login:hover {
+	display:block;
+	text-indent:-9999em;
+	font-size: 0px;
+	background: url("../img/botton_3_6.png") no-repeat center top;
+	position: absolute;
+	top: 700px;
+	left: 1000px;
+	width: 300px;
+	height: 90px;
+	border:0px solid #c13300;
+}
+
+#photo {
+	width: 320px;
+	position: relative;
+	top: 50px;
+	left: 10px;
+}
+

@@ -1,0 +1,139 @@
+#make{
+	float:left;
+	width:32%;
+	height:45px;
+}
+#find{
+	float:left;
+	width:30%;
+	height:45px;
+	background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #f29679), color-stop(0.05, #f2754d), color-stop(0.2, #e44815), color-stop(1, #601902));
+	background-image:-moz-linear-gradient(top, #f29679, #f2754d 5%,#e44815 20%, #601902);
+	background-image:-o-linear-gradient(top, #f29679, #f2754d 5%,#e44815 20%, #601902);
+}
+#mypage{//MYPAGE
+	float:left;
+	width:34%;
+	padding-left:2%;
+	height:45px;
+}
+#events{//FIND
+	height:auto;
+	text-align:left;	
+	background-color:#e44815;
+	padding:0px 0px 0px 0px;
+	margin-top:0px;
+	border:0px solid blue;
+}
+h2{
+	float:right;	
+}
+#events dl{
+	padding:0px;
+}
+#events dt{
+	list-style-type:none;
+	text-align:left;
+	display:block;
+	height:80px;
+	margin-left:0px;
+	background:white;
+	border:3px solid #e44815;
+	-webkit-border-radius:10px;
+}
+#events dd{
+	position:relative;
+	top:-60px;
+	left:-25px;
+	height:0px;
+}
+#events a{
+	display:block;
+	height:80px;
+	text-decoration:none;
+	font-weight:bold;
+	margin-left:6px;
+}
+#events img{
+	vertical-align:middle;
+	margin-top:0px;
+	width:100px;
+}
+#index img{
+	height:60px;
+	margin:0px;
+}
+#page1{
+
+}
+#page2{//MAKE
+	display:none;
+}
+#event_event_name{
+	height:20px;	
+}
+#event_event_pr{
+	height:45px;	
+}
+select{
+	height:35px;
+	font-size:large;
+}
+#more_candi{
+	display:block;
+	height:35px;
+	width:120px;
+	-webkit-border-radius:10px;
+	border:2px solid orange;
+	color:black;
+	text-align:center;
+	line-height:35px;
+	text-decoration:none;
+}
+#more_detail{
+	display:block;
+	height:35px;
+	width:120px;
+	-webkit-border-radius:10px;
+	border:2px solid orange;
+	color:black;
+	text-align:center;
+	line-height:35px;
+	text-decoration:none;
+}
+.private{
+	height:30px;
+	margin-top:10px;
+}
+div.private input{
+
+}
+div.private label{
+	cursor:pointer;
+	padding:5px 10px;
+	border:solid 1px #aaa;
+	margin-left:-1px;
+}
+div.private input:checked+label{
+	color: #fff;
+	background: #c3c3c3;	
+}
+.actions input{
+	margin-top:30px;
+	maigin:auto;
+	width:100%;
+	height:40px;	
+}
+#foot{
+	widht:100%;
+}
+#rb-root{
+	height:20px;
+	border:2px solid	red;	
+}
+#likeb{
+	border:0px solid	red;
+}
+#requestb input{
+	border:2px solid	red;
+}

@@ -1,0 +1,45 @@
+<!--<%= stylesheet_link_tag "smart/event_detail_smart_phone" %>-->
+<p id="notice"><%= notice %></p>
+<!--<div id="eventdetail">
+<p>
+  <b>イベント名:</b>
+  <%= @event.event_name %><br>
+
+  <b>開始時間:</b>
+  <%= @event.event_time %><br>
+
+  <b>開催場所:</b>
+  <%= @event.event_place %><br>
+
+  <b>PR:</b>
+  <%= @event.event_pr %><br>
+
+  <b>候補日１:</b>
+  <%= @event.candidate1 %><br>
+
+  <b>候補日２:</b>
+  <%= @event.candidate2 %><br>
+
+  <b>候補日３:</b>
+  <%= @event.candidate3 %><br>
+
+  <b>締切日:</b>
+  <%= @event.deadline %><br>
+</p>
+</div>
+
+<div id="link">
+<% if @current_user.name == @promorterName %> ユーザが幹事の場合
+<a href="#hidden" id="okakure">Edit</a> |
+<% end %>
+<%= link_to 'Back', events_path %>
+</div>-->
+
+<div id="schedule">
+<%= render "schedule" %>
+</div>
+<!-- 友達のリスト表示が出来るまで、いったん保留
+  <%= link_to "メッセージ送る", {:controller => "events", :action => "automessage"} %>
+-->
+
+

@@ -1,0 +1,49 @@
+body{
+	height:100%;
+}
+
+.letter{
+	display:none;
+}
+
+#sub_tytle img{
+	display:none;
+	width:20%;
+	float:left;
+}
+
+.largeletter{
+	display:none;
+	float:clear;
+}
+
+#background img{
+	position:relative;
+	width: 100%;
+	height: auto;
+}
+
+#loginb img{
+	position:relative;
+	float:left;
+	left:-5px;
+	width: 50%;
+	height: auto;
+}
+
+.logo img{
+	display:none;
+	width:60%;
+}
+
+#whatb img{	
+	position:relative;
+	float:right;
+	left:-5px;
+	width: 50%;
+	height: auto;
+}
+
+#counter{
+	display:none;	
+}

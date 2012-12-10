@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<meta name="copyright" content="Copyright Netowl Corporation" />
+	<meta name="robots" content="INDEX,FOLLOW" />
+	<title>ConoYubi-ConoYubiとは-</title>
+	<%= stylesheet_link_tag    "main", "whatsconoyubi" %>
+	<%= csrf_meta_tags %>
+</head>
+<body>
+	<div id="whatsconoyubi">
+		<div id="header">
+			ヘルプページ
+		</div>
+		<!-- /header -->
+		<div id="logo">
+				<%= image_tag "logo.png" %>
+			<div>
+			<!-- /header ロゴ画像の表示 -->
+				<div>
+					<h2>イベント開催・参加はとても簡単！</h2>
+				</div>
+				<div id="sponsor">
+					<div id="step_sponsor">
+						<%= image_tag "sponsor_step1.png" %>
+						<h3>イベント概要・場所等の項目を記入するだけでイベントを紹介するページを簡単に作成。</h3>
+
+						<%= image_tag "sponsor_step2.png" %>
+						<h3>日程が未定の場合には、参加者に投票してもらうこともできます。</h3>
+
+						<%= image_tag "sponsor_step3.png" %>
+						<h3>あとは開催日を待つだけ。楽しんでください。</h3>
+					</div>
+				</div>
+				<!-- /sponsor -->
+				<div id="visiter">
+					<div id="step_visiter">
+						<%= image_tag "visiter_step1.png" %>
+						<h3>開催予定のイベントから、お好みのイベントを検索。</h3>
+
+						<%= image_tag "visiter_step2.png" %>
+						<h3>もしイベントの開催日が未定なら、希望する日程を投票</h3>
+
+						<%= image_tag "visiter_step3.png" %>
+						<h3>あとは開催日を待つだけ。楽しんでください。</h3>
+					</div>
+				</div>
+				<!-- /visiter -->
+			</div>
+		</div>
+		<!--//logo-->
+	</div>
+	<!-- プライバシーポリシーの表示 -->
+	<div id="privacy">
+	 <%= link_to 'プライバシーポリシー', "http://www.cono-yubi.com/cono-top/privacy" %>
+	</div>
+	<!-- ログイン画面への遷移 -->
+	<div id="gologin">
+	  <%= link_to 'ログイン画面へ', :controller => "users", :action => "index" %>
+	</div>
+	<!--//whatconoyubi-->
+	<div id="clear"></div>
+	<div id="footer">
+		<address>Copyright &copy; cono-yubi. All Rights Reserved.</address>
+	</div>
+	<!-- /footer -->
+</body>
+</html>

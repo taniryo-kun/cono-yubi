@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns = "http://www.w3.org/1999/xhtml" dir = "ltr" xml:lang = "ja"
+	xmln:fb = "https://www.facebook.com/2008/fbml#"
+	xmlns:mixi = "http://mixi-platform.com/ns#" >
+<head prefix = "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# conoyubi: http://ogp.me/ns/fb/conoyubi#">
+  <link rel="shortcut icon" href="../assets/images/favicon.ico">
+  <meta http-equiv = "Content-Type"         content = "text/html; charset = UTF-8" />
+  <meta http-equiv = "Content-Style-Type"   content = "text/css" />
+  <meta http-equiv = "Content-Script-Type"  content = "text/javascript" />
+  <meta name = "copyright"                  content = "Copyright Netowl Corporation" />
+  <meta name = "robots"                     content = "INDEX,FOLLOW" />
+  <meta property = "og:title"        content = "CONOYUBI" />
+  <meta property = "og:type"         content = "website" />
+  <meta property = "og:url"          content = "http://www.cono-yubi.com/cono-top" />
+  <meta property = "og:site_name"    content = "?CONOYUBI" />
+  <meta property = "fb:admins"       content = "238965046184776" />
+  <link rel="shortcut icon" href="./img/favicon.ico">
+  <title>ConoYubi-イベント一覧ページ-</title>
+  <!-- Begin FBinitializing -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <%= stylesheet_link_tag    "main", "top2", "coda-slider-2.0" ,"jquery.fancybox-1.3.4" %>
+  <%= javascript_include_tag "jquery.mousewheel-3.0.4.pack","jquery.easing.1.3","jquery.coda-slider-2.0","jquery.fancybox-1.3.4.pack","FB_init","FB_function","Original_function" %>
+
+  <%= csrf_meta_tags %>
+  <script type="text/javascript">
+  	$(document).ready(function(){ //ページを読み込んだら処理を開始
+		//ここに記述します
+		$("a").css("text-align","right");
+		$("a#okakure").fancybox();
+		$('#coda-slider-1').codaSlider();
+	});
+  </script>
+    <script type="text/javascript">//googleAnalytics
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35885466-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+
+<%= render "shared/header" %>
+
+
+<div id="base">
+<div id="likebutton">
+	<div id="fb-root">
+	</div>
+	<!-- Begin Likebutton Set -->
+	<div id = "likeb" >
+		<div class="fb-like" data-href="http://www.cono-yubi.com/cono-top" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true">
+		</div><!-- fb-like -->
+		<!-- End Likebutton -->
+	</div>
+	<!-- End Likebutton Set -->
+	<!-- Begin Send Request form -->
+    <div id = "requestb" >
+		<p>
+		<input type="button"
+		  onclick="sendRequestViaMultiFriendSelector(); return false;"
+		  value="CONOYUBIを友達にすすめる" />
+		</p>
+	</div><!-- End Send Request form -->
+</div><!--#likebutton end-->
+<%= yield %>
+
+		<div id="footer">
+			<address>Copyright &copy; cono-yubi. All Rights Reserved.</address>
+		</div><!-- /footer -->
+
+</div><!--#base end-->
+
+<!-- 以下はスクリプトスペーズ -->
+
+<!-- 下の広告 -->
+<div id="commercial_bottom">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-3122541972673098";
+/* イベント一覧ページ下絵 */
+google_ad_slot = "2693045833";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+</div>
+</body>
+</html>

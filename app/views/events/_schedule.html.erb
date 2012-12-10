@@ -1,0 +1,43 @@
+<p>メンバーの予定</p>
+<table>
+<tr style="font-size:13px; text-align:center;">
+<th>
+	<td><%= @event.candidate1.strftime("%m/%d") %></td>
+	<td><%= @event.candidate2.strftime("%m/%d") %></td>
+	<td><%= @event.candidate3.strftime("%m/%d") %></td>
+</th>
+</tr>
+<% if @userlist.present? %>
+<%= form_for @userlist do |f| %>
+<% options = [["〇",2],["△",1],["×",0]] %>
+<tr id="inputScheBox">
+	<td><%= @userlist.user_id %></td>
+	<td><%= f.select :candidate_response1, options %></td>
+	<td><%= f.select :candidate_response2, options %></td>
+	<td><%= f.select :candidate_response3, options %></td>
+<% if @userlist.created_at.blank? %>
+	<td><%= f.submit "予定入力"%></td>
+<% end %>
+<% if @userlist.created_at.present? %>
+	<td><%= f.submit "予定編集", method: :update %></td>
+<% end %>
+<%= f.hidden_field :event_id, value: @userlist.event_id %>
+<%= f.hidden_field :user_id, value: @userlist.user_id %>
+<% end %>
+<% end %>
+</tr>
+<% if @userlists.present? && @userlists.find_by_user_id(@current_user.name) %>
+<% @userlists.each do |userlist| %>
+<% unless userlist.user_id == @current_user.name %>
+<tr id="schProperty">
+	<td><%= userlist.user_id %></td>
+	<td><%= userlist.change(userlist.candidate_response1) %></td>
+	<td><%= userlist.change(userlist.candidate_response2) %></td>
+	<td><%= userlist.change(userlist.candidate_response3) %></td>
+</tr>
+<% end %>
+<% end %>
+<% else %>
+<p>予定を入力して下さい</p>
+<% end %>
+</table>

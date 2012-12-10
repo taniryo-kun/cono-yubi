@@ -1,0 +1,26 @@
+<!-- <button id="desc" >カレンダー非表示</button> -->
+
+<div id="calendar" >
+	<%= javascript_include_tag "display_calendar" %>
+</div>
+
+<!-- 以下はスクリプトスペース -->
+<script>
+	$(document).ready(function(){
+	$("button").click(function () {
+	  var description = document.getElementById("desc");
+	  var s_description = description.innerHTML;
+	  var index = s_description.indexOf("非");
+	  console.log("desc=");
+	  console.log(description);
+	  //ボタンの表示を変える
+	  if(index == -1){
+	    description.innerHTML = "カレンダー非表示";
+	  }else{
+	    description.innerHTML = "カレンダー表示";
+	  }
+	  //カレンダーをオン、オフする
+	  $("#calendar").fadeToggle();
+	});
+});
+</script>

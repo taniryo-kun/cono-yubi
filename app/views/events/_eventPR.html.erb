@@ -1,0 +1,19 @@
+<!--<%= stylesheet_link_tag "smart/event_detail_smart_phone" %>-->
+<p id="notice"><%= notice %></p>
+<div id="eventdetail">
+<p>
+  <b>イベント名:</b>
+  <%= @event.event_name %><br>
+
+  <b>開催場所:</b>
+  <%= @event.event_place %><br>
+
+  <b>PR:</b>
+  <%= @event.event_pr %><br>
+</p>
+</div>
+<!-- 友達のリスト表示が出来るまで、いったん保留
+  <%= link_to "メッセージ送る", {:controller => "events", :action => "automessage"} %>
+-->
+
+

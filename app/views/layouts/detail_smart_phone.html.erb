@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns = "http://www.w3.org/1999/xhtml" dir = "ltr" xml:lang = "ja"
+	xmln:fb = "https://www.facebook.com/2008/fbml#"
+	xmlns:mixi = "http://mixi-platform.com/ns#">
+<head prefix = "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# conoyubi: http://ogp.me/ns/fb/conoyubi#">
+  <link rel="shortcut icon" href="./img/favicon.ico">
+  <title>イベント詳細ページ</title>
+  <%= stylesheet_link_tag "smart/event_detail_smart_phone","jquery.fancybox-1.3.4" "default","smart/fullcalendar_smart_phone","smart/fullcalendar_smart_phone.print","fullcalendar.min","gcal"%>
+  <%= stylesheet_link_tag "jquery-ui-1.9.1.custom.min"%>
+  <meta http-equiv = "Content-Type" 		content = "text/html; charset = UTF-8" />
+  <meta http-equiv = "Content-Style-Type" 	content = "text/css" />
+  <meta http-equiv = "Content-Script-Type" 	content = "text/javascript" />
+  <meta name = "copyright" 					content = "Copyright Netowl Corporation" />
+  <meta name = "robots" 					content = "INDEX, FOLLOW" />
+  <meta property = "og:title"	content = "CONOYUBI" />
+  <meta property = "type"		content = "website" />
+  <meta property = "url"		content = "http://www.cono-yubi.com" />
+  <meta property = "site_name"	content = "?CONOYUBI" />
+  <meta property = "fb:admins"	content = "238965046184776" />
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+  <script src="http://www.google.com/jsapi?key=AIzaSyB1g0nXJgt_RBH35_YJ_Ap2CBqJ-kPWRbc"></script>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <%= javascript_include_tag "fullcalendar.min","gcal","FB_init","FB_function","Original_function" %> 
+  <%= javascript_include_tag "gmap_gucci","jquery-ui-1.9.1.custom.min" %>
+  <%= csrf_meta_tags %>
+  <script type="text/javascript">
+  	$(document).ready(function(){ //ページを読み込んだら処理を開始
+		//ここに記述します
+		$("a").css("text-align","right");
+		$('#target').tabs();
+	});
+  </script>
+  <script type="text/javascript">//googleAnalytics
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35885466-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+  </script>
+  <!-- googleMapsAPI -->
+  <!-- ケータイ端末の場合はsensor=trueで現在位置を測定できる -->
+  <script type="text/javascript">
+	google.load('maps','3',{other_params:'sensor=true'});
+  </script>
+  <%=render "gmap3Head" %>
+  <!-- /googleMapsAPI -->
+</head>
+<body>
+<%= render "shared/header" %>
+
+	<div id="base">
+		<div id="header">
+    		<div id="logo"></div>
+        </div>
+        <!-- /header  -->
+		
+		<div id="target">
+			<ul>
+				<li class="tab0"><a href="#tab0">PR</a></li>
+				<li class="tab1"><a href="#tab1">予定</a></li>
+				<li class="tab2"><a href="#tab2">カレンダー</a></li>
+				<li class="tab3"><a href="#tab3" onclick="og_displayMap()">地図</a></li>
+				<% if @current_user.name == @promorterName %> <!--ユーザが幹事の場合、編集ボタン追加-->
+				<li class="tab4"><a href="#tab4">編集</a></li>
+				<% end %>
+			</ul>
+			<div id="tab0"><!-- eventPR -->
+				<div id="event_PR">
+					<div id="photo">
+						<a href="http://www.cono-yubi.com/cono-top/events/"><%= image_tag "Sublogo.png", :width => '200' %></a>
+					</div><!-- /photo -->
+					<%= render "eventPR" %>
+				</div><!-- eventPR -->
+			</div>
+			<div id="tab1"><!-- rightcol(schedule) -->
+				<div id="rightcol">
+					<%= render "schedule" %>
+				</div><!-- /rightcol -->
+			</div>
+			<div id="tab2">	<!-- calendar -->
+				<div id="display_calendar">
+					<p>イベント日程の確認は today ボタンを押してください。</p>
+					<%= render "calendar" %>
+				</div><!-- /calender -->
+			</div>
+			<div id="tab3"> <!-- map -->
+				<div id="click_counter" style="display:none">0</div>
+				<div id="g-map" style="height:370px; width:80%">
+					<a href="https://maps.google.co.jp" id="linkLatLng">地図アプリで開く</a>
+					<%= render "gmap3" %>
+				</div><!-- map -->
+			</div>
+			<% if @current_user.name == @promorterName %> <!--ユーザが幹事の場合、編集ボタン追加-->
+			<div id="tab4">
+				<%= render "form" %>
+			</div>
+			<%end%><!-- 編集ボタン -->
+		
+		</div>
+		<!-- /footer -->
+	<!--//base-->
+	</div>
+	<%= render "detailHeader" %>
+	
+	<!-- 以下はスクリプトスペース -->
+	<script>
+	(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=411286712247085";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	
+	</script>
+	
+	<div id="Mdetail_commercial">
+	<script type="text/javascript"><!--
+	google_ad_client = "ca-pub-3122541972673098";
+	/* ハーフモバイル詳細下 */
+	google_ad_slot = "5727309190";
+	google_ad_width = $(window).width();
+	google_ad_height = 60;
+	//-->
+	</script>
+	<script type="text/javascript"
+	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script>
+	</div>
+
+</body>
+</html>
