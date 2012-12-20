@@ -3,6 +3,9 @@
 class EventsController < ApplicationController
   # GET /events
   # GET /events.json
+  #フィルターを有効にするとログインしているかチェックを行う
+  #before_filter :login_check
+  
   def index
     @events = Event.find(:all,:conditions => ["private_flag = ?", 0], :order => "updated_at DESC")
     @event = Event.new
@@ -11,15 +14,15 @@ class EventsController < ApplicationController
 	#全イベント確認用
 	@allevents = Event.all(:order => "updated_at DESC")
 	#直リンされた場合はトップページへ
-	if @current_user.blank?
-		redirect_to(:controller => "users", :action => "index")
-	else
+	#if @current_user.blank?
+	#	redirect_to(:controller => "users", :action => "index")
+	#else
 		respond_to do |format|
 	      format.html # index.html.erb
 	      format.json { render json: @events }
 	      format.xml { render xml: @allevents }
 	    end
-	 end
+	# end
   end
   
   def indexMypage
@@ -39,10 +42,10 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-  if @current_user.blank?
-    session[:data] = params[:id]
-  	redirect_to :controller => "users", :action => "index"
-  else
+  #if @current_user.blank?
+  #  session[:data] = params[:id]
+  #	redirect_to :controller => "users", :action => "index"
+  #else
     @event = Event.find(params[:id])
     if @event.userlists.find_by_participant_number(1).present?
     	@promorterName = @event.userlists.find_by_participant_number(1).user_id
@@ -77,7 +80,7 @@ class EventsController < ApplicationController
       format.html { render layout: "detail" }
       format.json { render json: @event }
     end
-  end
+  #end
   end
 
   # GET /events/new
