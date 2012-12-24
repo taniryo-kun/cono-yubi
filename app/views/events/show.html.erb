@@ -58,7 +58,7 @@
 >
 </p>
 
-<%= mail_to "", "メールする",:subject=>"【開催案内】"+@event.event_name,:body=>@event.event_name +　@event.event_pr  %>
+<%= mail_to "", "メールする",:subject=>"【開催案内】"+@event.event_name,:body=>(@event.event_name +　@event.event_pr)  %>
 
 <!-- /feed_button -->
 </div><!-- rightcol -->
